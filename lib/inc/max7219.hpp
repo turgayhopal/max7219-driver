@@ -10,39 +10,39 @@
 #include <unistd.h>
 #include <cstring>
 
-#define	NUM_0				0x00
-#define	NUM_1				0x01
-#define	NUM_2				0x02
-#define	NUM_3				0x03
-#define	NUM_4				0x04
-#define	NUM_5				0x05
-#define	NUM_6				0x06
-#define	NUM_7				0x07
-#define	NUM_8				0x08
-#define	NUM_9				0x09
-#define	MINUS				0x0A
-#define	LETTER_E			0x0B
-#define	LETTER_H			0x0C
-#define	LETTER_L			0x0D
-#define	LETTER_P			0x0E
-#define	BLANK				0x0F
+constexpr uint8_t NUM_0 = 0x00;
+constexpr uint8_t NUM_1 = 0x01;
+constexpr uint8_t NUM_2 = 0x02;
+constexpr uint8_t NUM_3 = 0x03;
+constexpr uint8_t NUM_4 = 0x04;
+constexpr uint8_t NUM_5 = 0x05;
+constexpr uint8_t NUM_6 = 0x06;
+constexpr uint8_t NUM_7 = 0x07;
+constexpr uint8_t NUM_8 = 0x08;
+constexpr uint8_t NUM_9 = 0x09;
+constexpr uint8_t MINUS = 0x0A;
+constexpr uint8_t LETTER_E = 0x0B;
+constexpr uint8_t LETTER_H = 0x0C;
+constexpr uint8_t LETTER_L = 0x0D;
+constexpr uint8_t LETTER_P = 0x0E;
+constexpr uint8_t BLANK = 0x0F;
 
-#define	REG_NO_OP 			0x00
-#define	REG_DIGIT_0 		0x01
-#define	REG_DIGIT_1 		0x02
-#define	REG_DIGIT_2 		0x03
-#define	REG_DIGIT_3 		0x04
-#define	REG_DIGIT_4 		0x05
-#define	REG_DIGIT_5 		0x06
-#define	REG_DIGIT_6 		0x07
-#define	REG_DIGIT_7 		0x08
-#define	REG_DECODE_MODE 	0x09
-#define	REG_INTENSITY 		0x0A
-#define	REG_SCAN_LIMIT 		0x0B
-#define	REG_SHUTDOWN 		0x0C
-#define	REG_DISPLAY_TEST 	0x0F
+constexpr uint8_t REG_NO_OP = 0x00;
+constexpr uint8_t REG_DIGIT_0 = 0x01;
+constexpr uint8_t REG_DIGIT_1 = 0x02;
+constexpr uint8_t REG_DIGIT_2 = 0x03;
+constexpr uint8_t REG_DIGIT_3 = 0x04;
+constexpr uint8_t REG_DIGIT_4 = 0x05;
+constexpr uint8_t REG_DIGIT_5 = 0x06;
+constexpr uint8_t REG_DIGIT_6 = 0x07;
+constexpr uint8_t REG_DIGIT_7 = 0x08;
+constexpr uint8_t REG_DECODE_MODE = 0x09;
+constexpr uint8_t REG_INTENSITY = 0x0A;
+constexpr uint8_t REG_SCAN_LIMIT = 0x0B;
+constexpr uint8_t REG_SHUTDOWN = 0x0C;
+constexpr uint8_t REG_DISPLAY_TEST = 0x0F;
 
-#define NUMBER_OF_DIGITS	8
+constexpr uint8_t NUMBER_OF_DIGITS = 8;
 
 typedef struct max7219_config_s
 {
@@ -52,15 +52,16 @@ typedef struct max7219_config_s
     uint32_t spi_speed;
 } max7219_config_t;
 
-typedef enum max7219_digit_e{
-  DIGIT_1 = 0x01,
-  DIGIT_2,
-  DIGIT_3,
-  DIGIT_4,
-  DIGIT_5,
-  DIGIT_6,
-  DIGIT_7,
-  DIGIT_8,
+typedef enum max7219_digit_e
+{
+    DIGIT_1 = 0x01,
+    DIGIT_2,
+    DIGIT_3,
+    DIGIT_4,
+    DIGIT_5,
+    DIGIT_6,
+    DIGIT_7,
+    DIGIT_8,
 } max7219_digit_t;
 
 class MAX7219
@@ -72,6 +73,7 @@ private:
     uint8_t intensivity;
     uint8_t init_spi(void);
     uint8_t write_spi(uint8_t register_addr, uint8_t data);
+
 public:
     MAX7219(uint8_t intensivity);
     ~MAX7219();
